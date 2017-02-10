@@ -25,7 +25,7 @@
                 <label>Description</label>
                 <input type="text" class="form-control" name="txtDescription" />
             </div>
-            <div style="margin-left:50px;">
+            <div style="margin-left:75px;">
                 <input type="button" value="Save" class="btn btn-success" />
                 <input type="button" value="Clear" class="btn btn-danger" />
             </div>
@@ -53,8 +53,20 @@
                 <td>@item.Code</td>
                 <td>@item.Name</td>
                 <td>@item.Description</td>
-                <td><input type="button" class="btn btn-warning" value="Edit" /></td>
-                <td><input type="button" class="btn btn-danger" value="Delete" /></td>
+                <td>
+                    <button name="btnEdit" class="btn btn-warning">
+                        <span class="glyphicon glyphicon-pencil">
+                            Edit
+                        </span>
+                    </button>
+                </td>
+                <td>
+                    <button name="btnDelete" class="btn btn-danger">
+                        <span class="glyphicon glyphicon-trash">
+                            Delete
+                        </span> 
+                    </button>
+                </td>
             </tr>
         </tbody>
     }
