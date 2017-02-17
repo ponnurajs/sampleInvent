@@ -1,0 +1,16 @@
+﻿@model Inventory.Models.Customer
+@{
+    ViewBag.Title = "CustomerDetail";
+}
+
+<h2>CustomerDetail</h2>
+<ul>
+    <li>@Model.Name</li>
+    <li>@Model.membershipType.Name</li>
+    @if (Model.BirthDate != null)
+    {
+        <li>@Model.BirthDate</li>
+    }
+    
+</ul>
+

@@ -1,0 +1,40 @@
+﻿@model Inventory.ViewModel.MovieViewModel
+@{
+    ViewBag.Title = "Manage Movies";
+}
+
+@if (Model.NewMovie.Id == 0)
+{
+    <h2>New Movie</h2>
+}
+else
+{
+    <h2>Edit Movie</h2>
+}
+
+@using (Html.BeginForm("Save", "Movie"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.NewMovie.Name)
+        @Html.TextBoxFor(m => m.NewMovie.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m=> m.NewMovie.Name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.NewMovie.ReleaseDate)
+        @Html.TextBoxFor(m => m.NewMovie.ReleaseDate, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="GenreId">Genre</label>
+        @Html.DropDownListFor(m => m.NewMovie.GenreId, new SelectList(Model.GenreList, "Id", "Name"), "Select Genre", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.NewMovie.NumberInStock)
+        @Html.TextBoxFor(m=> m.NewMovie.NumberInStock, new { @class = "form-control"})
+    </div>
+
+    @Html.HiddenFor(m => m.NewMovie.Id)
+    <input type="submit" value="Save" class="btn btn-success" />
+}
+

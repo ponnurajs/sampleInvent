@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Inventory.Models.Movie>
+@{
+    ViewBag.Title = "Movies";
+}
+
+<h2>Movies List</h2>
+
+@*<a href="#" class="btn btn-success">New Movie</a>*@
+@Html.ActionLink("New Movie", "New", "Movie", null, new { @class = "btn btn-success"})
+<br /><br />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Movies</td>
+            <td>Genre</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var movie in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(movie.Name, "Details", "Movie", new { id = movie.Id }, null)</td>
+                <td>@movie.genre.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
